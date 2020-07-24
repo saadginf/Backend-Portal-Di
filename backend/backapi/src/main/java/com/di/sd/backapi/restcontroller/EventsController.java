@@ -49,6 +49,18 @@ public class EventsController {
         return eservice.getTop10();
 
     } 
+    @GetMapping("/top5")
+    public List<Events> top5() {
+
+        return eservice.getTop5();
+
+    } 
+    @GetMapping("/top2")
+    public List<Events> top2() {
+
+        return eservice.getTop2();
+
+    } 
     @DeleteMapping("/{projectId}")
     public ResponseEntity<?> deleteProject(@PathVariable Long projectId) {
         eservice.deleteExemplaire(projectId);

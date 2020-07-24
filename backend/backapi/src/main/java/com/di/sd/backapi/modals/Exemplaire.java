@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+
 @Entity
 public class Exemplaire {
     @Id
@@ -128,5 +129,8 @@ public class Exemplaire {
     public void setExiste(boolean existe) {
         this.existe = existe;
     }
+
+
+
 
 }

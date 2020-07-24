@@ -1,14 +1,12 @@
 package com.di.sd.backapi.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import com.di.sd.backapi.dao.EventsRepo;
@@ -75,6 +73,42 @@ public class EventSvcImpl {
             long noOfDaysBetween = ChronoUnit.DAYS.between(date,now);
            
             if(noOfDaysBetween==-10){
+                sortEvents.add(events);
+            }
+        }
+        return sortEvents;
+    }
+    public List<Events> getTop5(){
+        Iterable<Events> event = getAll();
+        List<Events> sortEvents = new ArrayList<Events>();
+     
+        LocalDateTime now = LocalDateTime.now();  
+       
+       
+        for (Events events : event) {
+            
+            LocalDate date = LocalDate.parse(events.getStart());
+            long noOfDaysBetween = ChronoUnit.DAYS.between(date,now);
+           
+            if(noOfDaysBetween==-5){
+                sortEvents.add(events);
+            }
+        }
+        return sortEvents;
+    }
+    public List<Events> getTop2(){
+        Iterable<Events> event = getAll();
+        List<Events> sortEvents = new ArrayList<Events>();
+     
+        LocalDateTime now = LocalDateTime.now();  
+       
+       
+        for (Events events : event) {
+            
+            LocalDate date = LocalDate.parse(events.getStart());
+            long noOfDaysBetween = ChronoUnit.DAYS.between(date,now);
+           
+            if(noOfDaysBetween==-2){
                 sortEvents.add(events);
             }
         }

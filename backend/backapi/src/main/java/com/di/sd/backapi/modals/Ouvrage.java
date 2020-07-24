@@ -75,7 +75,7 @@ public class Ouvrage {
     @ManyToOne
     @JoinColumn(name="ID_EDITEUR")
     private Editeur editeur;
-    
+    private String fileLink;
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
@@ -287,6 +287,21 @@ public class Ouvrage {
      */
     public void setNbrePret(Integer nbrePret) {
         this.nbrePret = nbrePret;
+    }
+
+
+    /**
+     * @return String return the fileLink
+     */
+    public String getFileLink() {
+        return fileLink;
+    }
+
+    /**
+     * @param fileLink the fileLink to set
+     */
+    public void setFileLink(String fileLink) {
+        this.fileLink = fileLink;
     }
 
 }
