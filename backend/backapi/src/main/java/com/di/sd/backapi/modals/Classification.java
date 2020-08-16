@@ -1,5 +1,6 @@
 package com.di.sd.backapi.modals;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -13,7 +14,9 @@ public class Classification extends infoOuvrage{
     @OneToMany(mappedBy = "classification")
     @JsonProperty(access = Access.WRITE_ONLY)
     private Set<Ouvrage> ouvrages;
-
+    @OneToMany(mappedBy = "classification")
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private List<Document> documents;
     public Classification() {
         super();
     }
@@ -31,6 +34,21 @@ public class Classification extends infoOuvrage{
      */
     public void setOuvrages(Set<Ouvrage> ouvrages) {
         this.ouvrages = ouvrages;
+    }
+
+
+    /**
+     * @return List<Document> return the documents
+     */
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    /**
+     * @param documents the documents to set
+     */
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
 
 }
