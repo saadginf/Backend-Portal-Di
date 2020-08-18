@@ -18,8 +18,8 @@ public class Emprunt {
     private Date dateDebut;
     private Date dateRetour;
     @ManyToOne
-     @JoinColumn(name="ID_PERS")
-    private Personne personne;
+     @JoinColumn(name="ID_EMPRUNTEUR")
+    private Emprunteur emprunteur;
     @ManyToOne
     @JoinColumn(name="ID_EXEMP")
     private Exemplaire exemplaire;
@@ -70,19 +70,7 @@ public class Emprunt {
         this.dateRetour = dateRetour;
     }
 
-    /**
-     * @return Personne return the personne
-     */
-    public Personne getPersonne() {
-        return personne;
-    }
-
-    /**
-     * @param personne the personne to set
-     */
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
+ 
 
     /**
      * @return Exemplaire return the exemplaire
@@ -99,6 +87,14 @@ public class Emprunt {
     }
 
     public Emprunt() {
+    }
+
+    public Emprunteur getEmprunteur() {
+        return emprunteur;
+    }
+
+    public void setEmprunteur(Emprunteur emprunteur) {
+        this.emprunteur = emprunteur;
     }
 
 }
