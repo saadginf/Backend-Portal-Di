@@ -9,13 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 public class Emprunt {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;   
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateDebut;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateRetour;
     @ManyToOne
      @JoinColumn(name="ID_EMPRUNTEUR")

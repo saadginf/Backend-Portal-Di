@@ -9,7 +9,7 @@ import com.di.sd.backapi.modals.Emprunteur;
 import com.di.sd.backapi.modals.Unite;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Service;
 
 @Service
