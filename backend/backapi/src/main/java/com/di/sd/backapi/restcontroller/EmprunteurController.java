@@ -46,7 +46,7 @@ public class EmprunteurController {
     }
     @GetMapping("unite/{projectId}")
     public ResponseEntity<?> getOeuvreByUnite(@PathVariable Long projectId) {
-        List<Emprunteur> p = epSvc.getExemplaireByUnite(projectId);
+        List<Emprunteur> p = epSvc.getEmByUnite(projectId);
         return new ResponseEntity<List<Emprunteur>>(p, HttpStatus.OK);
     } 
 }

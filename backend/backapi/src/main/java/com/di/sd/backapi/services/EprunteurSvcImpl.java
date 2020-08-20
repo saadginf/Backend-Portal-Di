@@ -31,7 +31,7 @@ public class EprunteurSvcImpl {
         return epteurRepo.findAll();
     }
 
-    public List<Emprunteur> getExemplaireByUnite(Long id) {
+    public List<Emprunteur> getEmByUnite(Long id) {
 
 
 		Unite unite = uniteRepo.findById(id).get();

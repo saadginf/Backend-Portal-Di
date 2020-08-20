@@ -14,6 +14,8 @@ public class Emprunteur {
     private Long id;
     @NotBlank(message = "Champ obligatoire")
     private String nomPrenom;
+    @NotBlank(message = "Champ obligatoire")
+    private String cin;
     @ManyToOne
     @JoinColumn(name="ID_UNITE")
     private Unite unite;
@@ -95,6 +97,14 @@ public class Emprunteur {
      */
     public void setGrade(Grade grade) {
         this.grade = grade;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 
 }
