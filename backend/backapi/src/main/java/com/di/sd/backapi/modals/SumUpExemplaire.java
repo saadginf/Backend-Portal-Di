@@ -2,6 +2,7 @@ package com.di.sd.backapi.modals;
 
 
 public class SumUpExemplaire {
+    private Long id;
     private String rayonId;
     private String unite;
     private String titre;
@@ -119,6 +120,21 @@ public class SumUpExemplaire {
      */
     public void setUnite(String unite) {
         this.unite = unite;
+    }
+
+
+    /**
+     * @return Long return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

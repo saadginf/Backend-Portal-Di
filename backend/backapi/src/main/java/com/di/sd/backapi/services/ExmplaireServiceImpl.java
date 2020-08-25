@@ -106,6 +106,7 @@ public class ExmplaireServiceImpl {
         for (Exemplaire exemplaire : exemp) {
             SumUpExemplaire sexp = new SumUpExemplaire();
             sexp.setUnite(exemplaire.getUnite().getLibbele());
+            sexp.setId(exemplaire.getId());
             sexp.setRayonId(exemplaire.getRayonId());
             sexp.setTitre(exemplaire.getTome().getOuvrage().getTitre());
             String auts = "";

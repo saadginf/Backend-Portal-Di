@@ -1,6 +1,7 @@
 package com.di.sd.backapi.restcontroller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -58,8 +59,11 @@ public class EmprunController {
     }
     @GetMapping("unite/{projectId}")
     public ResponseEntity<?> getOeuvreByUnite(@PathVariable Long projectId) {
-       // List<Emprunteur> p = epSvc.getExemplaireByUnite(projectId);
-        //return new ResponseEntity<List<Emprunteur>>(p, HttpStatus.OK);
-    return null;
+        List<Emprunt> p = epSvc.getBorrowed(projectId);
+        for (Emprunt emprunt : p) {
+            emprunt.getExemplaire().setTome(null);
+        }
+    return new ResponseEntity<List<Emprunt>>(p, HttpStatus.OK);
+
     } 
 }
