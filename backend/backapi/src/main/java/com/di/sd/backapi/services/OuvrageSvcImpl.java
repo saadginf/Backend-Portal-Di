@@ -81,6 +81,7 @@ public class OuvrageSvcImpl {
                 else if (unite.getLibbele().equals("BST")) sobu.setUniteBst(exemplaireRepo.countByUniteAndTome(unite, tome));
                 else if (unite.getLibbele().equals("ECT")) sobu.setIniteEct(exemplaireRepo.countByUniteAndTome(unite, tome));
                 else if (unite.getLibbele().equals("CIT")) sobu.setUniteCit(exemplaireRepo.countByUniteAndTome(unite, tome));
+                else if (unite.getLibbele().equals("BGE")) sobu.setUniteBge(exemplaireRepo.countByUniteAndTome(unite, tome));
             }
             sobus.add(sobu);
 

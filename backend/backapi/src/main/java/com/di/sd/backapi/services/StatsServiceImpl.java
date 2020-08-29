@@ -27,6 +27,7 @@ public class StatsServiceImpl {
         stsBiblio.setTotal( expRepo.count());
         Iterable<Unite> unites = uniter.findAll();
         for (Unite unite : unites) {
+          
             if(unite.getLibbele().equals("INSP")) stsBiblio.setUniteInsp(expRepo.countByUnite(unite));
             else if(unite.getLibbele().equals("7BT")) stsBiblio.setUnite7Bt(expRepo.countByUnite(unite));
             else if (unite.getLibbele().equals("3BT")) stsBiblio.setUnit3Bt(expRepo.countByUnite(unite)); 
@@ -34,6 +35,7 @@ public class StatsServiceImpl {
             else if (unite.getLibbele().equals("BST")) stsBiblio.setUniteBst(expRepo.countByUnite(unite));
             else if (unite.getLibbele().equals("ECT")) stsBiblio.setIniteEct(expRepo.countByUnite(unite));
             else if (unite.getLibbele().equals("CIT")) stsBiblio.setUniteCit(expRepo.countByUnite(unite));
+            else if (unite.getLibbele().equals("BGE")) stsBiblio.setUniteBge(expRepo.countByUnite(unite));
         }
         
         

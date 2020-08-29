@@ -9,6 +9,7 @@ public class StatsOuvByUnite {
     private Integer unite7Bt;
     private Integer unit3Bt;
     private Integer unite2Bt;
+    private Integer uniteBge;
     private Integer initeEct;
 
   
@@ -128,6 +129,21 @@ public class StatsOuvByUnite {
      */
     public void setTome(String tome) {
         this.tome = tome;
+    }
+
+
+    /**
+     * @return Integer return the uniteBge
+     */
+    public Integer getUniteBge() {
+        return uniteBge;
+    }
+
+    /**
+     * @param uniteBge the uniteBge to set
+     */
+    public void setUniteBge(Integer uniteBge) {
+        this.uniteBge = uniteBge;
     }
 
 }

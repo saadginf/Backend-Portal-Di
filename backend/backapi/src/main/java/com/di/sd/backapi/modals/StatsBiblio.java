@@ -12,7 +12,7 @@ public class StatsBiblio {
     private  Long unit3Bt;
     private Long unite2Bt;
     private Long initeEct;
-    
+    private Long uniteBge;
     private List<Ouvrage> lastOuvrages;
     private List<Ouvrage> bestOuvrages;
 
@@ -159,6 +159,21 @@ public class StatsBiblio {
     }
 
     public StatsBiblio() {
+    }
+
+
+    /**
+     * @return Long return the uniteBge
+     */
+    public Long getUniteBge() {
+        return uniteBge;
+    }
+
+    /**
+     * @param uniteBge the uniteBge to set
+     */
+    public void setUniteBge(Long uniteBge) {
+        this.uniteBge = uniteBge;
     }
 
 }

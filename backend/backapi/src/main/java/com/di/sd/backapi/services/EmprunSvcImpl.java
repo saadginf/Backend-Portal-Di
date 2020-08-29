@@ -52,7 +52,8 @@ public class EmprunSvcImpl {
     Exemplaire exemp   = exRepo.findById(ept.getExemplaire().getId()).get();
     exemp.setExiste(true);
     exRepo.save(exemp);
-
+    ept.setDateRetour(dateRetour);
+    eptRepo.save(ept);
     return "done";
   }
    

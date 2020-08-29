@@ -27,15 +27,16 @@ public class FileController {
 
     @PostMapping("/uploadFile/{projectId}")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file,@PathVariable Long projectId) {
+        if (!file.getContentType().equals("application/pdf")) {
+            throw new RuntimeException("Fichier Invalid");
+        }
         String fileName = fileStorageService.storeFile(file,projectId);
    
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("api/biblio/ouvrages/downloadFile/")
                 .path(fileName)
                 .toUriString();
-                if (!file.getContentType().equals("application/pdf")) {
-                    throw new RuntimeException("Fichier Invalid");
-                }
+              
         return new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
