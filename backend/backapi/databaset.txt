@@ -1,0 +1,58 @@
+Catégories:
+    INSERT INTO public.cateorie_grade(
+	value, label)
+	VALUES (1, 'Officier Général');
+    INSERT INTO public.cateorie_grade(
+	value, label)
+	VALUES (2, 'Officier Supérieur');
+    INSERT INTO public.cateorie_grade(
+	value, label)
+	VALUES (3, 'Officier Subalterne');
+    INSERT INTO public.cateorie_grade(
+	value, label)
+	VALUES (4, 'Sous-Officier');
+    INSERT INTO public.cateorie_grade(
+	value, label)
+	VALUES (5, 'HDT');
+
+-------------------------------------------------------------
+Grades:
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (1, 'Général de Corps d''Armée', 1);
+
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (2, 'Général de Division', 1);    
+
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (3, 'Général de Brigade', 1);
+
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (4, 'Colonel Major', 1);
+
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (5, 'Colonel', 2);
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (6, 'Lt-Colonel', 2);
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (7, 'Commandant', 2);
+
+
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (1, 'Colonel', 2);
+
+
