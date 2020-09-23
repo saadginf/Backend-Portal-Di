@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 
 import com.di.sd.backapi.pftransapi.grade.GradeAvoir;
 import com.di.sd.backapi.pftransapi.infom.EchelleSoldeAvoir;
@@ -21,17 +22,24 @@ import com.di.sd.backapi.pftransapi.infom.Penalisation;
 import com.di.sd.backapi.pftransapi.infom.Position;
 import com.di.sd.backapi.pftransapi.infom.Specialite;
 import com.di.sd.backapi.pftransapi.unites.UniteAffAvoir;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Personnel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Ce Champ est obligatoire")
     private String nom;
+    @NotBlank(message = "Ce Champ est obligatoire")
     private String prenom;
+    @NotBlank(message = "Ce Champ est obligatoire")
     private String cin;
+    @NotBlank(message = " Ce Champ est obligatoire")
     private String mle;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateNaissance;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateEntreeService;
     private Boolean apptitudePhysique;
     private String photo;

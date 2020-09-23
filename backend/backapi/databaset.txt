@@ -1,4 +1,6 @@
+/*
 Catégories:
+*/
     INSERT INTO public.cateorie_grade(
 	value, label)
 	VALUES (1, 'Officier Général');
@@ -14,45 +16,218 @@ Catégories:
     INSERT INTO public.cateorie_grade(
 	value, label)
 	VALUES (5, 'HDT');
-
+/*
 -------------------------------------------------------------
 Grades:
-
+*/
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
 	VALUES (1, 'Général de Corps d''Armée', 1);
-
-
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
 	VALUES (2, 'Général de Division', 1);    
-
-
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
 	VALUES (3, 'Général de Brigade', 1);
-
-
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
 	VALUES (4, 'Colonel Major', 1);
-
-
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
 	VALUES (5, 'Colonel', 2);
-
-INSERT INTO public.grade_perso(
-	value, label, id_cat)
-	VALUES (6, 'Lt-Colonel', 2);
-
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
 	VALUES (7, 'Commandant', 2);
-
-
 INSERT INTO public.grade_perso(
 	value, label, id_cat)
-	VALUES (1, 'Colonel', 2);
-
-
+	VALUES (8, 'Capitaine', 3);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (9, 'Lieutenant', 3);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (10, 'Sous Lieutenant', 3);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (11, 'Adjudant Chef', 4);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (12, 'Adjudant', 4);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (13, 'Sergent Chef', 4);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (14, 'Sergent', 4);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (15, 'Caporal Chef', 5);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (16, 'Caporal', 5);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (18, '2°Classe', 5);
+INSERT INTO public.grade_perso(
+	value, label, id_cat)
+	VALUES (17, '1°Classe', 5);
+	/*
+---------------------------------------------------------
+origine:
+*/
+INSERT INTO public.origine_perso(
+	value, label)
+	VALUES (1, 'École');
+	INSERT INTO public.origine_perso(
+	value, label)
+	VALUES (2, 'Issu des Rang');
+	/*
+---------------------------------------------------------------
+Echelle de solde 
+*/
+INSERT INTO public.echelle_solde(
+	value, label)
+	VALUES (1, '1');
+	INSERT INTO public.echelle_solde(
+	value, label)
+	VALUES (2, '2');
+	INSERT INTO public.echelle_solde(
+	value, label)
+	VALUES (3, '3');
+	INSERT INTO public.echelle_solde(
+	value, label)
+	VALUES (4, '4');
+	INSERT INTO public.echelle_solde(
+	value, label)
+	VALUES (5, '5');
+	INSERT INTO public.echelle_solde(
+	value, label)
+	VALUES (6, '6');
+	/*
+--------------------------------------------------------------------------
+position
+*/
+INSERT INTO public."position"(
+	value, label)
+	VALUES (1, 'Stage');
+	INSERT INTO public."position"(
+	value, label)
+	VALUES (2, 'En Service');
+	INSERT INTO public."position"(
+	value, label)
+	VALUES (3, 'I.Trans');
+	/*
+-----------------------------------------------------------------------
+miveau instruction
+*/
+INSERT INTO public.niveau_instruction(
+	value, label)
+	VALUES (1, 'CES');
+	INSERT INTO public.niveau_instruction(
+	value, label)
+	VALUES (2, 'BAC');
+	INSERT INTO public.niveau_instruction(
+	value, label)
+	VALUES (3, 'BAC +4');
+	/*
+------------------------------------------------------------------------------
+fonction
+*/
+INSERT INTO public.fonction(
+	value, label)
+	VALUES (1, 'Chef de Section');
+	INSERT INTO public.fonction(
+	value, label)
+	VALUES (2, 'Commandant de Cie');
+	/*
+----------------------------------------------------------------------------
+inspection */
+INSERT INTO public.inspection(
+	value, label)
+	VALUES (1, 'Infanterie');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (2, 'Artillerie');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (3, 'Blindée');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (4, 'Train');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (5, 'Génie');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (6, 'Santé');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (7, 'Transmissions');
+	INSERT INTO public.inspection(
+	value, label)
+	VALUES (8, 'Matériel');
+	/*
+-------------------------------------------------------------
+	unite
+	*/
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (1, '2ºB.Trans', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (2, '3ºB.Trans', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (3, '4ºB.Trans', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (4, '1ºB.Trans', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (5, '7ºB.Trans', 7);
+INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (6, '8ºB.Trans', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (7, '2ºBST', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (8, '1ºBST', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (9, 'BGE', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (10, 'ECT', 7);
+	INSERT INTO public.unite_affectation(
+	value, label, id_inspection)
+	VALUES (11, 'CIT', 7);
+	/*
+-------------------------------------------------------------
+	specialittees
+	*/
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (1, 'Transmissions');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (2, 'Exploitation SIC');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (3, 'Technique SIC');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (4, 'Informatique');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (5, 'Génie Logiciel');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (6, 'Réseaux Informatique');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (7, 'Cybersécurité');
+	INSERT INTO public.specialite(
+	value, label)
+	VALUES (8, 'Guerre électronique');

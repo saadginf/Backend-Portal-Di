@@ -18,11 +18,11 @@ public class Penalisation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long value;
     private Long nbrJour;
-    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date datePenalisation;
     private String motif;
     @ManyToOne
     @JoinColumn(name="ID_PERSONEL")
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Personnel personel;
     public Penalisation() {
     }

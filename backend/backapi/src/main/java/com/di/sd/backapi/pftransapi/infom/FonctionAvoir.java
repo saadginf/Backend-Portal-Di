@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.di.sd.backapi.pftransapi.personnel.Personnel;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @Entity
 public class FonctionAvoir {
     @Id
@@ -17,6 +19,7 @@ public class FonctionAvoir {
     private Long id;
     @ManyToOne
     @JoinColumn(name="ID_PERSONEL")
+    @JsonProperty(access = Access.WRITE_ONLY)
     private Personnel personel;
     @ManyToOne
     @JoinColumn(name="ID_FONCTION")
