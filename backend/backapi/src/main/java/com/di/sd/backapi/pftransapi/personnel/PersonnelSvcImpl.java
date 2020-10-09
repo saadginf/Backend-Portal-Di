@@ -1,6 +1,6 @@
 package com.di.sd.backapi.pftransapi.personnel;
 
-
+import java.util.List;
 
 import com.di.sd.backapi.exceptions.LibbeleException;
 import com.di.sd.backapi.pftransapi.grade.GradeAvoir;
@@ -11,6 +11,7 @@ import com.di.sd.backapi.pftransapi.infom.FonctionAvoir;
 import com.di.sd.backapi.pftransapi.infom.FonctionAvoireRepo;
 import com.di.sd.backapi.pftransapi.infom.Notation;
 import com.di.sd.backapi.pftransapi.infom.NotationsRepo;
+import com.di.sd.backapi.pftransapi.infom.Penalisation;
 import com.di.sd.backapi.pftransapi.unites.UniteAffAvoir;
 import com.di.sd.backapi.pftransapi.unites.UniteAffRepo;
 
@@ -32,7 +33,8 @@ public class PersonnelSvcImpl {
     EchelleSoldeAvoireRepo echelleSoldeAvoireRepo;
     @Autowired
     NotationsRepo notationsRepo;
-
+    @Autowired
+    PenalisationRepo penalisationRepo;
     public Personnel addPerso(Personnel ouv) {
 
       try {
@@ -50,6 +52,18 @@ public class PersonnelSvcImpl {
        
     }
     
+    public Personnel getById(Long id){
+      Personnel pers = persoRepo.findById(id).get();
+
+      if (pers == null) {
+          throw new LibbeleException("Cet unite n'existe pas");
+      }
+  
+
+      return pers;
+      
+    }
+
     
     public GradeAvoir addGrade(GradeAvoir gradeAvoir) {
       try {
@@ -92,4 +106,29 @@ public class PersonnelSvcImpl {
   }      
 
     }
+    public Penalisation addPenalisation(Penalisation penalisation) {
+
+      try {
+    return penalisationRepo.save(penalisation);
+} catch (Exception e) {
+  throw new LibbeleException("Problème de base de données");
+}      
+
+  }
+  public List<Personnel> getPersonnelsByName(String mc) {
+    
+    List<Personnel> ouvs = persoRepo.findByNomContains(mc);
+    
+    return ouvs;
+}
+public List<Personnel> getPersonnelsByPrenom(String mc) {
+  List<Personnel> ouvs = persoRepo.findByPrenomContains(mc);
+  
+  return ouvs;
+}
+public List<Personnel> getPersonnelsByMle(String mc) {
+  List<Personnel> ouvs = persoRepo.findByMleContains(mc);
+  
+  return ouvs;
+}
 }

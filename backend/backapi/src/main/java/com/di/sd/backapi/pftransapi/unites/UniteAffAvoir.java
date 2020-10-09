@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.di.sd.backapi.pftransapi.personnel.Personnel;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -25,7 +26,9 @@ public class UniteAffAvoir {
     @ManyToOne
     @JoinColumn(name="ID_UNITE")
     private UniteAffectation unite;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateDebutAff;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateFinAff;
 
     public UniteAffAvoir() {

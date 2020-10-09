@@ -13,7 +13,9 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import com.di.sd.backapi.pftransapi.grade.GradeAvoir;
+import com.di.sd.backapi.pftransapi.grade.GradePerso;
 import com.di.sd.backapi.pftransapi.infom.EchelleSoldeAvoir;
+import com.di.sd.backapi.pftransapi.infom.Fonction;
 import com.di.sd.backapi.pftransapi.infom.FonctionAvoir;
 import com.di.sd.backapi.pftransapi.infom.NiveauInstruction;
 import com.di.sd.backapi.pftransapi.infom.Notation;
@@ -22,6 +24,7 @@ import com.di.sd.backapi.pftransapi.infom.Penalisation;
 import com.di.sd.backapi.pftransapi.infom.Position;
 import com.di.sd.backapi.pftransapi.infom.Specialite;
 import com.di.sd.backapi.pftransapi.unites.UniteAffAvoir;
+import com.di.sd.backapi.pftransapi.unites.UniteAffectation;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -41,9 +44,22 @@ public class Personnel {
     private Date dateNaissance;
     @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateEntreeService;
-    private Boolean apptitudePhysique;
+    private Boolean apptitudePhysique = true;
     private String photo;
     private String obs;
+
+    @ManyToOne
+    @JoinColumn(name="ID_GRA")
+    private GradePerso gradeActuelle;
+
+    @ManyToOne
+    @JoinColumn(name="ID_NVINSTA")
+    private UniteAffectation uniteActuelle;
+
+    @ManyToOne
+    @JoinColumn(name="ID_FOA")
+    private Fonction fonctionActuelle;
+
 
     @ManyToOne
     @JoinColumn(name="ID_NVINST")
@@ -354,6 +370,49 @@ public class Personnel {
      */
     public void setFonctionAvoirs(List<FonctionAvoir> fonctionAvoirs) {
         this.fonctionAvoirs = fonctionAvoirs;
+    }
+
+
+    /**
+     * @return GradePerso return the gradeActuelle
+     */
+    public GradePerso getGradeActuelle() {
+        return gradeActuelle;
+    }
+
+    /**
+     * @param gradeActuelle the gradeActuelle to set
+     */
+    public void setGradeActuelle(GradePerso gradeActuelle) {
+        this.gradeActuelle = gradeActuelle;
+    }
+
+    /**
+     * @return UniteAffectation return the uniteActuelle
+     */
+    public UniteAffectation getUniteActuelle() {
+        return uniteActuelle;
+    }
+
+    /**
+     * @param uniteActuelle the uniteActuelle to set
+     */
+    public void setUniteActuelle(UniteAffectation uniteActuelle) {
+        this.uniteActuelle = uniteActuelle;
+    }
+
+    /**
+     * @return Fonction return the fonctionActuelle
+     */
+    public Fonction getFonctionActuelle() {
+        return fonctionActuelle;
+    }
+
+    /**
+     * @param fonctionActuelle the fonctionActuelle to set
+     */
+    public void setFonctionActuelle(Fonction fonctionActuelle) {
+        this.fonctionActuelle = fonctionActuelle;
     }
 
 }
