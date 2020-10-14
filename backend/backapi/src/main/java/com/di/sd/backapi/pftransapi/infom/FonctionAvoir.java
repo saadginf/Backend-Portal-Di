@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.di.sd.backapi.pftransapi.personnel.Personnel;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @Entity
@@ -24,10 +25,13 @@ public class FonctionAvoir {
     @ManyToOne
     @JoinColumn(name="ID_FONCTION")
     private Fonction fonction;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateDebutAff;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateFinAff;
 
     public FonctionAvoir() {
+        //controller
     }
 
     

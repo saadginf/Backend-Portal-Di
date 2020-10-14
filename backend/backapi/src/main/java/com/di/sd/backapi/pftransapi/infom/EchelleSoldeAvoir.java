@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.di.sd.backapi.pftransapi.personnel.Personnel;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -25,6 +26,7 @@ public class EchelleSoldeAvoir {
     @ManyToOne
     @JoinColumn(name="ID_ECHELLE")
     private EchelleSolde echelleSolde;
+    @JsonFormat(pattern ="yyyy-MM-dd" )
     private Date dateEchelle;
 
     public Long getId() {

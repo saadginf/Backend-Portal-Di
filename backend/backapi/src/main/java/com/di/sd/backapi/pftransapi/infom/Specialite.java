@@ -10,6 +10,7 @@ public class Specialite {
     private String label;
 
     public Specialite() {
+        //controller
     }
 
     
