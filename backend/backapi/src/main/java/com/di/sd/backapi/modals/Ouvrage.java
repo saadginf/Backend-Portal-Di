@@ -25,65 +25,57 @@ public class Ouvrage {
     private Long id;
     @NotBlank(message = "Le titre du livre est obligatoire")
     private String titre;
-   @JsonFormat(pattern ="yyyy-mm-dd" )
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date anneePublication;
     private String descriptif;
     private Integer nbrePret;
-     //Orignine 
-     @ManyToOne
-    @JoinColumn(name="ID_ORIGINE")
-    
-     private Origine origine;
-     //Theme
-     @ManyToOne
-     @JoinColumn(name="ID_THEME")
-     private Theme theme;
-     //type
+    // Orignine
+    @ManyToOne
+    @JoinColumn(name = "ID_ORIGINE")
 
-     @ManyToOne
-     @JoinColumn(name="ID_TYPE")
-     private Type type;
-    
-     
-     // clqssification
-     @ManyToOne
-     @JoinColumn(name="ID_CLASS")
-    private Classification classification; 
+    private Origine origine;
+    // Theme
+    @ManyToOne
+    @JoinColumn(name = "ID_THEME")
+    private Theme theme;
+    // type
 
+    @ManyToOne
+    @JoinColumn(name = "ID_TYPE")
+    private Type type;
 
-     // auteur
-     @ManyToMany
-     @JoinTable(
-         name = "AUT_OU", 
-     joinColumns = @JoinColumn(name = "OU_ID"), 
-     inverseJoinColumns = @JoinColumn(name = "AUT_ID"))     
-     private Set<Auteur> auteurs;
-     //exemplaire
-     @OneToMany(mappedBy = "ouvrage")
-     private Set<Tome> tomes;
+    // clqssification
+    @ManyToOne
+    @JoinColumn(name = "ID_CLASS")
+    private Classification classification;
 
-     //Mots clefs
-     @ManyToMany
-     @JoinTable(
-         name = "MC_OU", 
-     joinColumns = @JoinColumn(name = "MC_ID"), 
-     inverseJoinColumns = @JoinColumn(name = "AUT_ID")) 
+    // auteur
+    @ManyToMany
+    @JoinTable(name = "AUT_OU", joinColumns = @JoinColumn(name = "OU_ID"), inverseJoinColumns = @JoinColumn(name = "AUT_ID"))
+    private Set<Auteur> auteurs;
+    // exemplaire
+    @OneToMany(mappedBy = "ouvrage")
+    private Set<Tome> tomes;
+
+    // Mots clefs
+    @ManyToMany
+    @JoinTable(name = "MC_OU", joinColumns = @JoinColumn(name = "MC_ID"), inverseJoinColumns = @JoinColumn(name = "AUT_ID"))
     private Set<MotsClefs> motsClefs;
     @JsonFormat(pattern = "yyyy-mm-dd")
     @Column(updatable = false)
     private Date createdAt;
     @ManyToOne
-    @JoinColumn(name="ID_EDITEUR")
+    @JoinColumn(name = "ID_EDITEUR")
     private Editeur editeur;
     private String fileLink;
+
     @PrePersist
-    protected void onCreate(){
+    protected void onCreate() {
         this.createdAt = new Date();
     }
+
     public Ouvrage() {
     }
-    
-
 
     /**
      * @return Long return the id
@@ -197,7 +189,6 @@ public class Ouvrage {
         this.auteurs = auteurs;
     }
 
-    
     /**
      * @return Set<MotsClefs> return the motsClefs
      */
@@ -211,7 +202,6 @@ public class Ouvrage {
     public void setMotsClefs(Set<MotsClefs> motsClefs) {
         this.motsClefs = motsClefs;
     }
-
 
     /**
      * @return Set<Tome> return the tomes
@@ -227,7 +217,6 @@ public class Ouvrage {
         this.tomes = tomes;
     }
 
-
     /**
      * @return Date return the createdAt
      */
@@ -242,7 +231,6 @@ public class Ouvrage {
         this.createdAt = createdAt;
     }
 
-
     /**
      * @return Editeur return the editeur
      */
@@ -256,10 +244,6 @@ public class Ouvrage {
     public void setEditeur(Editeur editeur) {
         this.editeur = editeur;
     }
-
-
-
-    
 
     /**
      * @return String return the descriptif
@@ -289,7 +273,6 @@ public class Ouvrage {
         this.nbrePret = nbrePret;
     }
 
-
     /**
      * @return String return the fileLink
      */
@@ -302,6 +285,14 @@ public class Ouvrage {
      */
     public void setFileLink(String fileLink) {
         this.fileLink = fileLink;
+    }
+
+    @Override
+    public String toString() {
+        return "Ouvrage [anneePublication=" + anneePublication + ", classification=" + classification + ", createdAt="
+                + createdAt + ", descriptif=" + descriptif + ", editeur=" + editeur + ", fileLink=" + fileLink + ", id="
+                + id + ", nbrePret=" + nbrePret + ", origine=" + origine + ", theme=" + theme + ", titre=" + titre
+                + ", type=" + type + "]";
     }
 
 }

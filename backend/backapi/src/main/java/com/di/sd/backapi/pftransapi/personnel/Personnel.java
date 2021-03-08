@@ -23,6 +23,7 @@ import com.di.sd.backapi.pftransapi.infom.OriginePerso;
 import com.di.sd.backapi.pftransapi.infom.Penalisation;
 import com.di.sd.backapi.pftransapi.infom.Position;
 import com.di.sd.backapi.pftransapi.infom.Specialite;
+import com.di.sd.backapi.pftransapi.inscription.Inscription;
 import com.di.sd.backapi.pftransapi.unites.UniteAffAvoir;
 import com.di.sd.backapi.pftransapi.unites.UniteAffectation;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -40,38 +41,37 @@ public class Personnel {
     private String cin;
     @NotBlank(message = " Ce Champ est obligatoire")
     private String mle;
-    @JsonFormat(pattern ="yyyy-MM-dd" )
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
-    @JsonFormat(pattern ="yyyy-MM-dd" )
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateEntreeService;
     private Boolean apptitudePhysique = true;
     private String photo;
     private String obs;
 
     @ManyToOne
-    @JoinColumn(name="ID_GRA")
+    @JoinColumn(name = "ID_GRA")
     private GradePerso gradeActuelle;
 
     @ManyToOne
-    @JoinColumn(name="ID_NVINSTA")
+    @JoinColumn(name = "ID_NVINSTA")
     private UniteAffectation uniteActuelle;
 
     @ManyToOne
-    @JoinColumn(name="ID_FOA")
+    @JoinColumn(name = "ID_FOA")
     private Fonction fonctionActuelle;
 
-
     @ManyToOne
-    @JoinColumn(name="ID_NVINST")
+    @JoinColumn(name = "ID_NVINST")
     private NiveauInstruction nvInstruction;
     @ManyToOne
-    @JoinColumn(name="ID_POS")
+    @JoinColumn(name = "ID_POS")
     private Position position;
     @ManyToOne
-    @JoinColumn(name="ID_SPECIALITE")
+    @JoinColumn(name = "ID_SPECIALITE")
     private Specialite specialite;
     @ManyToOne
-    @JoinColumn(name="ID_ORIGINE")
+    @JoinColumn(name = "ID_ORIGINE")
     private OriginePerso origine;
     @OneToMany(mappedBy = "personel")
     private List<Penalisation> penalisations;
@@ -85,9 +85,9 @@ public class Personnel {
     private List<UniteAffAvoir> uniteAffAvoirs;
     @OneToMany(mappedBy = "personel")
     private List<FonctionAvoir> fonctionAvoirs;
+    @OneToMany(mappedBy = "personne")
+    private List<Inscription> inscriptions;
 
-
-    
     /**
      * @return Long return the id
      */
@@ -315,7 +315,6 @@ public class Personnel {
     public Personnel() {
     }
 
-
     /**
      * @return List<EchelleSoldeAvoir> return the echelleSoldeAvoirs
      */
@@ -372,7 +371,6 @@ public class Personnel {
         this.fonctionAvoirs = fonctionAvoirs;
     }
 
-
     /**
      * @return GradePerso return the gradeActuelle
      */
@@ -413,6 +411,20 @@ public class Personnel {
      */
     public void setFonctionActuelle(Fonction fonctionActuelle) {
         this.fonctionActuelle = fonctionActuelle;
+    }
+
+    /**
+     * @return List<Inscription> return the inscriptions
+     */
+    public List<Inscription> getInscriptions() {
+        return inscriptions;
+    }
+
+    /**
+     * @param inscriptions the inscriptions to set
+     */
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
     }
 
 }

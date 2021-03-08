@@ -231,3 +231,137 @@ INSERT INTO public.unite_affectation(
 	INSERT INTO public.specialite(
 	value, label)
 	VALUES (8, 'Guerre électronique');
+		/*
+-------------------------------------------------------------
+cat formations
+	*/
+	INSERT INTO public.categorie_formation(
+	value, label)
+	VALUES (1, 'Formation Militaire');
+	INSERT INTO public.categorie_formation(
+	value, label)
+	VALUES (2, 'Formation Civil');
+			/*
+-------------------------------------------------------------
+type formations
+	*/
+	INSERT INTO public.type_formation(
+	value, label)
+	VALUES (1, 'Formation Initiale');
+	INSERT INTO public.type_formation(
+	value, label)
+	VALUES (2, 'Formation Continue');
+	INSERT INTO public.type_formation(
+	value, label)
+	VALUES (3, 'Formation Specifique');
+	INSERT INTO public.type_formation(
+	value, label)
+	VALUES (4, 'Formation Diverse');
+			/*
+-------------------------------------------------------------
+etablissement
+	*/
+INSERT INTO public.etablissement(
+	value, label)
+	VALUES (1, 'CIT');
+	INSERT INTO public.etablissement(
+	value, label)
+	VALUES (2, 'CREMS');
+	INSERT INTO public.etablissement(
+	value, label)
+	VALUES (3, 'INPT');
+	INSERT INTO public.etablissement(
+	value, label)
+	VALUES (4, 'ENSA-KENITRA');
+	INSERT INTO public.etablissement(
+	value, label)
+	VALUES (5, 'ENSA-FES');
+			/*
+-------------------------------------------------------------
+statut
+	*/
+
+INSERT INTO public.statutinscription(
+	value, label)
+	VALUES (1, 'Planification');
+	INSERT INTO public.statutinscription(
+	value, label)
+	VALUES (2, 'En Cours');
+	INSERT INTO public.statutinscription(
+	value, label)
+	VALUES (3, 'Valide');
+	INSERT INTO public.statutinscription(
+	value, label)
+	VALUES (4, 'Rejete');
+				/*
+-------------------------------------------------------------
+cs
+	*/
+INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (1, '2000-2001');
+
+INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (2, '2001-2002');
+
+
+INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (3, '2002-2003');
+	
+INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (4, '2003-2004');
+
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (5, '2004-2005');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (6, '2005-2006');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (7, '2007-2008');
+		INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (8, '2008-2009');
+			INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (9, '2009-2010');
+			INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (10, '2010-2011');
+			INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (11, '2011-2012');
+				INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (12, '2012-2013');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (13, '2013-2014');
+		INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (14, '2014-2015');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (15, '2015-2016');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (16, '2016-2017');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (17, '2017-2018');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (18, '2018-2019');
+	INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (19, '2019-2020');
+		INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (20, '2020-2021');
+			INSERT INTO public.cycle_scolaire(
+	value, label)
+	VALUES (21, '2021-2022');

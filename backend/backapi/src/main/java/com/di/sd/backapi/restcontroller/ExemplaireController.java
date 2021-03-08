@@ -1,6 +1,7 @@
 package com.di.sd.backapi.restcontroller;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -43,6 +44,7 @@ public class ExemplaireController {
     UnitSvcImpl uservice;
     @Autowired
     ThemScvImpl thService;
+
     @PostMapping("")
     public ResponseEntity<?> addExmp(@Valid @RequestBody Exemplaire exmp, BindingResult result) {
 
@@ -86,17 +88,14 @@ public class ExemplaireController {
     }
 
     @GetMapping(value = "unite/{unite}/{theme}", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<?> getInventaire(@PathVariable Long unite, @PathVariable Long theme) {
+    public ResponseEntity<?> getInventaire(@PathVariable Long unite, @PathVariable Long theme) throws IOException {
         List<Inventaire> p = exScv.getInventaire(theme, unite);
         Unite u = uservice.getUniteById(unite);
         Theme t = thService.getThemeById(theme);
-        ByteArrayInputStream bis = PDFGenerator.customerPDFReport(p,u,t);
+        ByteArrayInputStream bis = PDFGenerator.customerPDFReport(p, u, t);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename= inventaire.pdf");
-        return ResponseEntity
-                .ok()
-                .headers(headers)
-                .contentType(MediaType.APPLICATION_PDF)
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
                 .body(new InputStreamResource(bis));
     }
 }

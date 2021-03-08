@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 
 import com.di.sd.backapi.pftransapi.personnel.Personnel;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Penalisation {
@@ -23,6 +25,7 @@ public class Penalisation {
     private String motif;
     @ManyToOne
     @JoinColumn(name="ID_PERSONEL")
+    @JsonProperty(access = Access.WRITE_ONLY)
     private Personnel personel;
     public Penalisation() {
     }
@@ -44,19 +47,7 @@ public class Penalisation {
         this.value = value;
     }
 
-    /**
-     * @return String return the label
-     */
-    public String getLabel() {
-        return motif;
-    }
-
-    /**
-     * @param label the label to set
-     */
-    public void setLabel(String label) {
-        this.motif = label;
-    }
+ 
 
 
     /**
